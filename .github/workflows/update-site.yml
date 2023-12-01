@@ -12,18 +12,20 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - run: echo 'Test passed, deploying updated version website'
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          key: ${{ secrets.SSH_KEY }}
+          key: ${{ secrets.KEY }}
+          script: ./scripts/deploy_site.sh
 
-      - name: run deploy script
-        run: ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} -p ${{ secrets.SSH_PORT }} "bash -s" < ./scripts/deploy_site.sh
+  #      - name: run deploy script
+  #       run: ssh ${{ secrets.USERNAME }}@$ ${{ secrets.HOST }} "bash -s" < ./scripts/deploy_site.sh
 
   on-failure:
     runs-on: ubuntu-latest
