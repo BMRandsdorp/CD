@@ -9,9 +9,6 @@ on:
 jobs:
   on-success:
     runs-on: ubuntu-20.04
-    #    defaults:
-    #      run:
-    #        working-directory: scripts
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - run: echo 'Test passed, deploying updated version website'
