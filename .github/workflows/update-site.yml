@@ -5,6 +5,7 @@ on:
     workflows: [Run Tests]
     types:
       - completed
+
 jobs:
   on-success:
     runs-on: ubuntu-20.04
@@ -12,36 +13,22 @@ jobs:
       run:
         working-directory: ./scripts
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-      steps:
+    steps:
       - run: echo 'Test passed, deploying updated version website'
       - uses: actions/checkout@v2
 
       - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        # password: ${{ secrets.PASSWORD }}
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
 
       - name: run deploy script
         run: ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} -p ${{ secrets.SSH_PORT }} "bash -s" < ./deploy_site.sh
-        
 
   on-failure:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
       - run: echo 'Pytest failed, check pytest results and try again'
-
-
-
-# edit to deploy new site on succesful test
-# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow
-
-# add secrets to use in deploy
-# https://github.com/appleboy/ssh-action/tree/master
-# https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions#adding-scripts-to-your-workflow
-
-# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#providing-inputs
-# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_run
