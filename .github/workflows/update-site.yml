@@ -18,14 +18,10 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
           key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
           script: ./scripts/deploy_site.sh
-
-  #      - name: run deploy script
-  #       run: ssh ${{ secrets.USERNAME }}@$ ${{ secrets.HOST }} "bash -s" < ./scripts/deploy_site.sh
 
   on-failure:
     runs-on: ubuntu-latest
