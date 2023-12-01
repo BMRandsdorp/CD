@@ -32,16 +32,3 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
       - run: echo 'Pytest failed, check pytest results and try again'
-
-
-
-
-# edit to deploy new site on succesful test
-# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow
-
-# add secrets to use in deploy
-# https://github.com/appleboy/ssh-action/tree/master
-# https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions#adding-scripts-to-your-workflow
-
-# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#providing-inputs
-# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_run
