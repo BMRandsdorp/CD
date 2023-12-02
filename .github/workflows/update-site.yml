@@ -17,11 +17,11 @@ jobs:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
+          host: ${{ secrets.HOST }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: ./scripts/deploy_site.sh
+          script: bash ./scripts/deploy_site.sh
 
   on-failure:
     runs-on: ubuntu-latest
