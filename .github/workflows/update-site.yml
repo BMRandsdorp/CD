@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: /scripts/deploy_site.sh
+          script: home/scripts/deploy_site.sh
 
   on-failure:
     runs-on: ubuntu-latest
