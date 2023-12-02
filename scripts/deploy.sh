@@ -1,10 +1,12 @@
 echo "Starting deployment of updated site"
 # navigate to directory of active site
-cd ..
+cd ../home
 # home is in #/ updating site contents fully
 # Pull contents from github
 git pull origin master
 # restart application
-systemctl restart my-application
+systemctl restart nginx 
 # Verify the application is running
-systemctl status my-application
+systemctl status farm
+
+exit

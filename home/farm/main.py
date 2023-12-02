@@ -10,7 +10,7 @@ def index():
     # multiple lines of text for home page
     index_lines = [
         'Hello, world!',
-        'This is version 2 of our home page',
+        'This is version 3 of our home page',
         'You can find a secret page by adding /cow to the URL'
     ]
 
