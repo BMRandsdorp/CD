@@ -14,7 +14,7 @@ jobs:
       - run: echo 'Test passed, deploying updated version website'
       - uses: actions/checkout@v3
 
-      - name: executing remote ssh commands using ssh key
+      - name: deploy site
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: sh ./scripts/deploy.sh
+          script: ./scripts/deploy.sh
 
   on-failure:
     runs-on: ubuntu-latest

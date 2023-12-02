@@ -1,5 +1,3 @@
-#!/bin/bash
-
 echo "Starting deployment of updated site"
 
 # navigate to directory of active site
