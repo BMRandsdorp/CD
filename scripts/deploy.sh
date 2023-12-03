@@ -5,6 +5,7 @@ pwd
 echo "moving to home directory and print contents" 
 # navigate to directory of active site
 cd ..
+echo "checking contents directory" 
 ls
 
 echo "run git status in directory" 
