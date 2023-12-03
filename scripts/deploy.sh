@@ -9,10 +9,10 @@ ls
 echo "testing git in home directory" 
 git status
 # Pull contents from github
-# git pull origin master
+git pull origin master
 # restart application
-# systemctl restart nginx 
+systemctl restart nginx 
 # Verify the application is running
-# systemctl status farm
+systemctl status farm
 
 exit
