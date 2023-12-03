@@ -2,7 +2,9 @@ echo "Starting deployment of updated site"
 
 # confirm working directory
 pwd 
-
+ls
+cd home
+ls
 # navigate to directory of active site
 # cd ../home
 # home is in #/ updating site contents fully
