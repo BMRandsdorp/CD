@@ -10,10 +10,10 @@ ls
 echo "run git status in directory" 
 git status
 # Pull contents from github
-# git pull origin master
+git pull origin master
 # restart application
-# systemctl restart farm
+systemctl restart farm
 # Verify the application is running
-# systemctl status farm
+systemctl status farm
 
 exit
