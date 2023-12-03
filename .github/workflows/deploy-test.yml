@@ -18,7 +18,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: bash ./scripts/deploy.sh
+          script: ./scripts/deploy.sh
 
       #- name: run sh script
       #  run: bash ./scripts/deploy.sh
