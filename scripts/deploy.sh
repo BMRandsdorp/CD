@@ -2,8 +2,11 @@ echo "Starting deployment of updated site"
 
 # confirm working directory
 pwd 
-ls
+echo "moving to home directory and print contents" 
 cd home
+ls
+echo "moving to farm directory and print contents" 
+cd farm
 ls
 # navigate to directory of active site
 # cd ../home
