@@ -3,7 +3,7 @@ name: Deploy test
 on: workflow_dispatch
 
 jobs:
-  ssh test:
+  ssh-test:
     runs-on: ubuntu-20.04
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
