@@ -11,14 +11,14 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: deploy site
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: ./scripts/deploy.sh
+          script: /scripts/deploy.sh
 
       #- name: run sh script
       #  run: bash ./scripts/deploy.sh
