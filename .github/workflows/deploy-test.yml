@@ -1,0 +1,24 @@
+name: Deploy test
+
+on: workflow_dispatch
+
+jobs:
+  ssh test:
+    runs-on: ubuntu-20.04
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: echo 'running ssh testing'
+      - uses: actions/checkout@v3
+
+      - name: deploy site
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: bash ./scripts/deploy.sh
+
+      #- name: run sh script
+      #  run: bash ./scripts/deploy.sh
